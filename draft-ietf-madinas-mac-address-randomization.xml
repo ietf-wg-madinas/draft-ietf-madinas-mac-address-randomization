@@ -6,10 +6,10 @@
   <!ENTITY rfc4862 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.4862.xml'>
   <!ENTITY rfc4191 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.4191.xml'>
   <!ENTITY rfc6973 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.6973.xml'>
-  <!ENTITY rfc7217 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.7217.xml'>  
+  <!ENTITY rfc7217 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.7217.xml'>
   <!ENTITY I-D.gont-6man-deprecate-eui64-based-addresses SYSTEM 'http://xml.resource.org/public/rfc/bibxml3/reference.I-D.gont-6man-deprecate-eui64-based-addresses.xml'>
-  <!ENTITY rfc8947 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.8947.xml'> 
-  <!ENTITY rfc8948 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.8948.xml'> 
+  <!ENTITY rfc8947 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.8947.xml'>
+  <!ENTITY rfc8948 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.8948.xml'>
   <!ENTITY rfc7844 PUBLIC '' 'http://xml.resource.org/public/rfc/bibxml/reference.RFC.7844.xml'>
 
 ]>
@@ -25,7 +25,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-02"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-latest"
      ipr="trust200902">
   <front>
       <title abbrev="MAC address randomization">
@@ -86,6 +86,8 @@
        </address>
     </author>
 
+    <date year="2022"/>
+
     <area>Internet</area>
 
     <workgroup>MADINAS</workgroup>
@@ -97,7 +99,7 @@ Internet privacy has become a major concern over the past few years. Users are
 becoming more aware that their online activity leaves a vast digital footprint,
 that communications are not always properly secured, and that their location and
 actions can be easily tracked. One of the main factors for the location tracking
-issue is the wide use of long-lasting identifiers, such as MAC addresses. 
+issue is the wide use of long-lasting identifiers, such as MAC addresses.
 
       </t>
 
@@ -221,7 +223,7 @@ Identifier (OUI), which are the first three octets in transmission order and
 identify the organization that issued the identifier, and (ii) Network Interface
 Controller (NIC) Specific, which are the following three octets, assigned by the
 organization that manufactured the NIC, in such a way that the resulting MAC
-address is globally unique. 
+address is globally unique.
         </t>
 
         <t>
@@ -250,7 +252,7 @@ concern <xref target="link_layer_privacy"/>.
       <t>
 MAC addresses can be easily observed by a third party, such as a passive device
 listening to communications in the same network. In an 802.11 network, a station
-exposes its MAC address in two different situations:	  
+exposes its MAC address in two different situations:
       </t>
 
 <t><list style="symbols">
@@ -258,14 +260,14 @@ exposes its MAC address in two different situations:
 While actively scanning for available networks, the MAC address is used in the
 Probe Request frames sent by the device (aka IEEE 802.11 STA).
       </t>
-	  
+
 	  <t>
 Once associated to a given Access Point (AP), the MAC address is used in frame
 transmission and reception, as one of the addresses used in the address fields
 of an IEEE 802.11 frame.
       </t>
 </list></t>
-	  
+
 	  <t>
 One way to overcome this privacy concern is by using randomly generated MAC
 addresses. As described in the previous section, the IEEE 802 addressing
@@ -275,17 +277,17 @@ global coordination mechanism to ensure that the generated address is still
 unique within the local network. This feature can be used to generate random
 addresses, which decouple the globally-unique identifier from the device and
 therefore make it more difficult to track a user device from its MAC/L2 address
-<xref target="enhancing_location_privacy" />. 
+<xref target="enhancing_location_privacy" />.
       </t>
 
     </section>
-	
 
 
 
 
-    <section anchor="sec:mac_addr_experiments" title="Privacy Workshop, Tutorial and Experiments at IETF and IEEE 802 meetings">	
-	
+
+    <section anchor="sec:mac_addr_experiments" title="Privacy Workshop, Tutorial and Experiments at IETF and IEEE 802 meetings">
+
 	<t>
 As an outcome to the STRINT W3C/IAB Workshop <xref target="strint" />, on July
 2014 a Tutorial on Pervasive Surveillance of the Internet - Designing Privacy
@@ -296,7 +298,7 @@ as IETF were taking, and guidelines that were being followed when developing new
 Internet protocol specifications (e.g. <xref target="RFC6973" />). The Tutorial
 highlighted some Privacy concerns applicable specifically to Link Layer
 technologies and provided suggestions on how IEEE 802 could help addressing
-them. 
+them.
 	</t>
 
 	<t>
@@ -307,7 +309,7 @@ and discussions from the group have generated multiple outcomes, such as: 802E
 PAR: Recommended Practice for Privacy Considerations for IEEE 802 Technologies
 <xref target="IEEE_802E" />, and the 802c PAR: Standard for Local and
 Metropolitan Area Networks - Overview and Architecture Amendment - Local Medium
-Access Control (MAC) Address Usage <xref target="IEEE_802c" />.	
+Access Control (MAC) Address Usage <xref target="IEEE_802c" />.
 	</t>
 
 	<t>
@@ -318,7 +320,7 @@ was to evaluate the use of MAC address randomization from two different
 perspectives: (i) the effect on the connectivity experience of the end-user,
 also checking if applications and operating systems (OSs) were affected; and
 (ii) the potential impact on the network infrastructure itself. Some of the
-findings were published in <xref target="wifi_internet_privacy" />. 
+findings were published in <xref target="wifi_internet_privacy" />.
       </t>
 
       <t>
@@ -334,10 +336,10 @@ with other privacy features at higher layers.
 Since then, MAC randomization has further been implemented by mobile operating
 systems to provide better privacy for mobile phone users when connecting to
 public wireless networks <xref target="privacy_ios" />, <xref
-target="privacy_windows" />, <xref target="privacy_android" />. 	  
+target="privacy_windows" />, <xref target="privacy_android" />.
 	  </t>
 
-	  
+
     </section>
 <!-- END L2 address randomization -->
 
@@ -390,7 +392,7 @@ has been specified in the recently published IEEE P802E: Recommended Practice
 for Privacy Considerations for IEEE 802 Technologies <xref target="IEEE_802E"
 />. The IEEE P802E specification will form part of the basis for the review of
 user privacy solutions applicable to IEEE Std 802.11 (aka Wi-Fi) devices as part
-of the RCM <xref target="rcm_privacy_csd" /> efforts. 
+of the RCM <xref target="rcm_privacy_csd" /> efforts.
 </t>
 
 <t>
@@ -402,7 +404,7 @@ Currently, two task groups in IEEE 802.11 are dealing with issues related to RCM
 The IEEE 802.11bh task group, looking at mitigating the repercussions that RCM
 creates on 802.11 networks and related services, and
     </t>
-  
+
     <t>
 The IEEE 802.11bi task group, which will define modifications to the IEEE Std
 802.11 medium access control (MAC) specification to specify new mechanisms that
@@ -432,7 +434,7 @@ sustainability of deployed services. A first version of this document has been
 liaised with the IETF as part of the MAC Address Device Identification for
 Network and Application Services (MADINAS) activities through the "Wi-Fi
 Identification In a post MAC Randomization Era v1.0" paper <xref
-target="wba_paper" />. 
+target="wba_paper" />.
       </t>
 
     </section>
@@ -526,11 +528,11 @@ of identifying information. <xref target="RFC7844" /> also indicates that the
 link-layer address, IP address, and DHCP identifier shall evolve in synchrony.
       </t>
 
-<!--  
+<!--
       <t>
 Lately, the MAC Address Device Identification for Network and Application Services (MADINAS) IETF BoF
-has discussed the need to examine the effect of RCM schemes on network and application services in several 
-scenarios identified as relevant. 
+has discussed the need to examine the effect of RCM schemes on network and application services in several
+scenarios identified as relevant.
       </t>
 -->
 
@@ -544,76 +546,116 @@ scenarios identified as relevant.
 Since this content can evolve with time, it is now hosted at https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md
         </t>
 
-<!-- [2022-07-08] cjbc: moved to github
-        <t>
-Most modern OSes (especially mobile ones) do implement by default some MAC
-address randomization policy. <xref target="tab:current_practices" /> summarizes
-current practices for Androiod and iOS, as the time of writing this document
-(original source: https://www.fing.com/news/private-mac-address-on-ios-14,
-updated based on findings from the authors).
-        </t>
-
-        <texttable anchor="tab:current_practices"
-                   title="Android and iOS MAC address randomization practices">
-          <ttcol width="50%" align="left">Android 10+</ttcol>
-          <ttcol width="50%" align="left">iOS 14+</ttcol>
-            <c>The randomized MAC address is bound to the SSID</c>
-            <c>The randomized MAC address is bound to the BSSID</c>
-            <c></c>
-            <c></c>
-            <c>The randomized MAC address is stable across reconnections for the same network</c>
-            <c>The randomized MAC address is stable across reconnections for the same network</c>
-            <c></c>
-            <c></c>
-            <c>The randomized MAC address does not get re-randomized when the device forgets a WiFI network</c>
-            <c>The randomized MAC address is reset when the device forgets a WiFI network</c>
-            <c></c>
-            <c></c>
-            <c>MAC address randomization is enabled by default for all the new WiFi networks. But if the device previously connected to a WiFi network identifying itself with the real MAC address, no randomized MAC address will be used (unless manually enabled)</c>
-            <c>MAC address randomization is enabled by default for all the new WiFi networks</c>
-        </texttable>
-
-        <t>
-In September 2021, we have performed some additional tests to evaluate how most
-widely used OSes behave regarfing MAC address randomization. <xref
-target="tab:experiments-2021" /> summarizes our findings, where show on
-different rows whether the OS performs address randomization per network, per
-new connection, daily, supports configuration per SSID, supports address
-randomization for scanning, and whether it does that by default.
-        </t>
-
-        <texttable anchor="tab:experiments-2021"
-                   title="Observed behavior from different OS (as of September 2022)">
-          <ttcol width="35%" align="left">OS</ttcol>
-          <ttcol width="15%" align="center">Linux</ttcol>
-          <ttcol width="20%" align="center">Android 10</ttcol>
-          <ttcol width="20%" align="center">Windows 10</ttcol>
-          <ttcol width="10%" align="center">iOS 14+</ttcol>
-            <c>Random per net.</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random per connec.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random daily</c><c>N</c><c>N</c><c>Y</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>SSID config.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random. for scan</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random. for scan by default</c><c>N</c><c>Y</c><c>N</c><c>Y</c>
-        </texttable>
-
-      <t>
-According to <xref target="privacy_android"/>, starting in Android 12, Android
-uses non-persistent randomization in the following situations: (i) a network
-suggestion app specifies that non-persistant randomization be used for the
-network (through an API); or (ii) the network is an open network that hasn't
-encountered a captive portal and an internal config option is set to do so (by
-default it is not).
-      </t>
--->
-
       </section>
 <!-- END OSes current practices -->
+
+    <section anchor="rcm-types" title="A taxonomy of MAC address selection
+                                       policies">
+      <t>
+        This section documents five different policies for MAC address selection.
+      </t>
+
+      <t>
+        XXX-The names are subject to change.
+        The "M" in MAC is included in the acronym, but not the "A" from address.
+        This allows one to talk about a PVOM Address, or PNGM Address.
+      </t>
+
+      <t>
+        The names are all in the form for per-period-of-time-selection.
+      </t>
+      <section anchor="policy-pvom" title="Per-Vendor OUI MAC address (PVOM)">
+
+        <t>
+          This form of MAC address selection is the historical default.
+        </t>
+        <t>
+          The vendor obtains an Organizationally Unique Identifier (OUI) from the IEEE.
+          This has been a 24-bit prefix (including two upper bits which are
+          set specifically) that is assigned to the vendor.
+          The vendor generates a unique 24-bit value for the lower 24-bits,
+          forming the 48-bit MAC address.
+          It has not been unusual for the 24-bit value to be taken as an
+          incrementing counter, assigned at the factory, and burnt into
+          non-volatile storage.
+        </t>
+
+        <t>
+          Note that 802.15.4 use 64-bit MAC addresses, and the IEEE assigns
+          32-bit prefixes.
+          The IEEE has indicated that there may be a future Ethernet
+          specification using 64-bit MAC addresses.
+        </t>
+      </section>
+
+      <section anchor="policy-pdgm" title="Per-Device Generated MAC address (PDGM)">
+
+        <t>
+          This form of MAC address is randomly generated by the device, usually upon first boot.
+          The resulting MAC address is stored in non-volatile storage and is
+          used for the rest of the device lifetime.
+        </t>
+      </section>
+
+      <section anchor="policy-pbgm" title="Per-Boot Generated MAC address (PBGM)">
+
+        <t>
+          This form of MAC address is randomly generated by the device, each
+          time the device is booted.
+
+          The resulting MAC address is *not* stored in non-volatile storage.
+          It does not persist across power cycles.
+
+          This case may sometimes be a PDGM where the non-volatile storage is no longer functional
+          (or has failed).
+        </t>
+      </section>
+
+      <section anchor="policy-pngm" title="Per-Network Generated MAC adress (PNGM)">
+
+        <t>
+          This form of MAC address is generated each time a new network
+          connection is created.
+        </t>
+        <t>
+          This is typically used with WiFi (802.11) networks where the network is identified by an SSID Name.
+          The generated address is stored on non-volatile storage, indexed by the SSID.
+          Each time the device returns to a network with the same SSID, the
+          device uses the saved MAC address.
+        </t>
+
+        <t>
+          It is possible to use PNGM for wired ethernet connections through
+          some passive observation of network traffic, such as STP, LLDP,
+          DHCP or Router Advertisements to determine which network has been
+          attached.
+        </t>
+      </section>
+
+      <section anchor="policy-ppgm" title="Per-Period Generated MAC address (PPGM)">
+
+        <t>
+          This form of MAC address is generated periodically.
+          Typical numbers are around every twelve hours.
+          Like PNGM, it is used primarily with WiFi (802.11).
+        </t>
+
+        <t>
+          When the MAC address changes, the station disconnects from the current
+          session and reconnects using the new MAC address.
+          This will involve a new WPA/802.1x session: new EAP, TLS, etc. negotiations.
+          A new DHCP, Router-Advertisement will be done.
+          TBD: it is unclear if any TLS session-resumption ticket (used by
+          EAP-TLS) can or should be retained across a change of the MAC address.
+        </t>
+        <t>
+          If DHCP is used, then a new DUID is generated so as to not link to
+          the previous connection, and the result is usually new IP addresses
+          allocated.
+        </t>
+      </section>
+
+    </section>
 
     <section anchor="IANA" title="IANA Considerations">
 
@@ -679,7 +721,7 @@ comments on previous versions of this document.
         </front>
         <seriesInfo name="Standards for Communications and Networking (CSCN), 2015 IEEE Conference on" value="" />
       </reference>
-	  
+
       <reference anchor="link_layer_privacy" >
         <front>
           <title>Privacy at the link layer</title>
@@ -692,8 +734,8 @@ comments on previous versions of this document.
           <date month="February" year="2014"/>
         </front>
         <seriesInfo name="Contribution at W3C/IAB workshop on Strengthening the Internet Against Pervasive Monitoring (STRINT)" value="" />
-      </reference> 
-	  
+      </reference>
+
 
       <reference anchor="enhancing_location_privacy" >
         <front>
@@ -705,8 +747,8 @@ comments on previous versions of this document.
           <date month="" year="2005"/>
         </front>
         <seriesInfo name="Mobile Networks and Applications, vol. 10, no. 3, pp. 315–325" value="" />
-      </reference> 
-	    
+      </reference>
+
       <reference anchor="privacy_ios" target="https://support.apple.com/en-us/HT211227">
   	<front>
     		<title>Use private Wi-Fi addresses in iOS 14, iPadOS 14, and watchOS 7</title>
@@ -726,7 +768,7 @@ comments on previous versions of this document.
     		<date />
   	</front>
       </reference>
-	  
+
       <reference anchor="ieee_privacy_ecsg" target="http://www.ieee802.org/PrivRecsg/">
   	<front>
     		<title>IEEE 802 EC Privacy Recommendation Study Group</title>
@@ -735,9 +777,9 @@ comments on previous versions of this document.
     		</author>
     		<date />
   	</front>
-      </reference>	  
+      </reference>
 
-	    
+
       <reference anchor="privacy_tutorial" target="https://mentor.ieee.org/802-ec/dcn/14/ec-14-0043-01-00EC-internet-privacy-tutorial.pdf">
   	<front>
     		<title>Tutorial on Pervasive Surveillance of the Internet - Designing Privacy into Internet Protocols </title>
@@ -768,7 +810,7 @@ comments on previous versions of this document.
       </reference>
 
 
-	    
+
       <reference anchor="privacy_android" target="https://source.android.com/devices/tech/connect/wifi-mac-randomization-behavior">
   	<front>
     		<title>MAC Randomization Behavior</title>
@@ -780,7 +822,7 @@ Open Source Project">
     		<date />
   	</front>
       </reference>
-	    
+
       <reference anchor="privacy_windows" target="https://support.microsoft.com/en-us/windows/how-to-use-random-hardware-addresses-ac58de34-35fc-31ff-c650-823fc48eb1bc">
   	<front>
     		<title>Windows: How to use random hardware addresses</title>
@@ -790,9 +832,9 @@ Open Source Project">
     		<date />
   	</front>
       </reference>
-	  
-	  
-	  
+
+
+
       <reference anchor="when_mac_randomization_fails" >
         <front>
           <title>A Study of MAC Address Randomization in Mobile Devices and When it Fails</title>
@@ -857,7 +899,7 @@ Open Source Project">
         </front>
         <seriesInfo name="doc.:IEEE 802.11-20/1117r3" value="" />
 	    </reference>
-	    
+
 	    <reference anchor="rcm_tig_final_report" >
         <front>
           <title>IEEE 802.11 Randomized And Changing MAC Addresses Topic Interest Group Report</title>
@@ -897,7 +939,7 @@ Open Source Project">
         </front>
         <seriesInfo name="doc.:IEEE 802.11-20/1346r1" value="" />
 	    </reference>
-	  
+
 	    <reference anchor="wba_paper" >
         <front>
           <title>Wi-Fi Identification Scope for Liasing - In a post MAC Randomization Era</title>
@@ -907,8 +949,8 @@ Open Source Project">
         </front>
         <seriesInfo name="doc.:WBA Wi-Fi ID Intro: Post MAC Randomization Era v1.0 - IETF liaison" value="" />
 	    </reference>
-	  
-	  	  
+
+
 
     </references>
 
