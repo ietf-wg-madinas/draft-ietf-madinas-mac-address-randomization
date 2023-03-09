@@ -25,11 +25,11 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-latest"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-05"
      ipr="trust200902">
   <front>
-      <title abbrev="MAC address randomization">
-       MAC address randomization
+      <title abbrev="Randomized and Changing MAC Address">
+       Randomized and Changing MAC Address
       </title>
 
     <!-- AUTHORS -->
@@ -86,7 +86,7 @@
        </address>
     </author>
 
-    <date year="2022"/>
+    <date year="2023"/>
 
     <area>Internet</area>
 
@@ -554,7 +554,7 @@ Since this content can evolve with time, it is now hosted at https://github.com/
     <section anchor="rcm-types" title="A taxonomy of MAC address selection
                                        policies">
       <t>
-        This section documents five different policies for MAC address selection.
+        This section documents different policies for MAC address selection. Note that some OSes might use combination of multiple of these policies.
       </t>
 
       <t>
@@ -655,6 +655,18 @@ Since this content can evolve with time, it is now hosted at https://github.com/
           the previous connection, and the result is usually new IP addresses
           allocated.
         </t>
+      </section>
+
+      <section anchor="policy-psgm" title="Per-Session Generated MAC address (PSGM)">
+
+        <t>
+          This form of MAC address is generated on a per session basis. Like PNGM, it is used primarily with WiFi (802.11).
+        </t>
+
+        <t>
+          Since the address changes only when a new session is established, there is no disconnection/reconnection involved.
+        </t>
+        
       </section>
 
     </section>
