@@ -25,10 +25,10 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-05"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-06"
      ipr="trust200902">
   <front>
-      <title abbrev="Randomized and Changing MAC Address">
+      <title abbrev="Randomized and Changing MAC Address state of affairs">
        Randomized and Changing MAC Address
       </title>
 
@@ -683,7 +683,11 @@ N/A.
     <section anchor="Security" title="Security Considerations">
 
       <t>
-TBD.
+Privacy considerations regarding tracking the location of a user through the MAC address of this device are discussed throughout this document. Given the informational nature of this document, no protocols/solutions are specified, but current state of affairs is documented.
+      </t>
+      
+      <t>
+Any future specification in this are would have to look into security and privacy aspects, such as, but not limited to: i) mitigating the problem of location privacy while minimizing the impact on upper layers of the protocol stack; ii) providing means to network operators to authenticate devices and authorize network access despite the MAC addresses changing following some pattern; and, iii) provide means for the device not to use MAC addresses it is not authorized to use or that are currently in use.
       </t>
 
     </section>
@@ -699,7 +703,7 @@ randomization.
       <t>
 Authors would like to thank Jerome Henry and Hai Shalom for their review and
 comments on previous versions of this document. Authors would also like to thank
-Michael Richardson for his contibutions on the taxonomy section.
+Michael Richardson for his contributions on the taxonomy section.
       </t>
 
     </section>
