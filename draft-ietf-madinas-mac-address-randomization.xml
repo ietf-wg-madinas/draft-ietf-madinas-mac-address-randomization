@@ -25,7 +25,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-06"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-07"
      ipr="trust200902">
   <front>
       <title abbrev="Randomized and Changing MAC Address state of affairs">
@@ -283,9 +283,6 @@ therefore make it more difficult to track a user device from its MAC/L2 address
       </t>
 
     </section>
-
-
-
 
 
     <section anchor="sec:mac_addr_experiments" title="Privacy Workshop, Tutorial and Experiments at IETF and IEEE 802 meetings">
@@ -558,9 +555,9 @@ Since this content can evolve with time, it is now hosted at https://github.com/
       </t>
 
       <t>
-        XXX-The names are subject to change.
-        The "M" in MAC is included in the acronym, but not the "A" from address.
-        This allows one to talk about a PVOM Address, or PNGM Address.
+        Note about the used naming convention: the "M" in MAC is included in the
+acronym, but not the "A" from address. This allows one to talk about a PVOM
+Address, or PNGM Address.
       </t>
 
       <t>
@@ -627,7 +624,7 @@ Since this content can evolve with time, it is now hosted at https://github.com/
         </t>
 
         <t>
-          It is possible to use PNGM for wired ethernet connections through
+          It is possible to use PNGM for wired Ethernet connections through
           some passive observation of network traffic, such as STP, LLDP,
           DHCP or Router Advertisements to determine which network has been
           attached.
@@ -712,9 +709,9 @@ Michael Richardson for his contributions on the taxonomy section.
 
   <back>
 
-    <references title="Normative References">
+<!--    <references title="Normative References">
       &rfc2119;
-    </references>
+    </references> -->
 
     <references title="Informative References">
 
