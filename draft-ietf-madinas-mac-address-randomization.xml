@@ -25,7 +25,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-08"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-09"
      ipr="trust200902">
   <front>
       <title abbrev="Randomized and Changing MAC Address state of affairs">
@@ -130,7 +130,7 @@ of users and/or eavesdrop their physical and online activities. This is due to
 many factors, such as the vast digital footprint that users leave on the
 Internet, for instance sharing information on social networks, cookies used by
 browsers and servers to provide a better navigation experience, connectivity
-logs that allow tracking of a user’s Layer-2 (L2/MAC) or Layer-3 (L3) address,
+logs that allow tracking of a user's Layer-2 (L2/MAC) or Layer-3 (L3) address,
 web trackers, etc.; and/or the weak (or even null in some cases) authentication
 and encryption mechanisms used to secure communications.
       </t>
@@ -200,11 +200,11 @@ format of these addresses is shown in <xref target="fig:ieee802_mac_address_form
         +--------+--------+---------+--------+--------+---------+
        /          \
       /            \
-     /              \          b0 (U/L bit):
+     /              \          b0 (I/G bit):
     /                \             0: unicast
    /                  \            1: multicast
   /                    \
- /                      \      b1:
+ /                      \      b1 (U/L bit):
 +--+--+--+--+--+--+--+--+          0: globally unique (OUI enforced)
 |b7|b6|b5|b4|b3|b2|b1|b0|          1: locally administered
 +--+--+--+--+--+--+--+--+
@@ -543,88 +543,6 @@ scenarios identified as relevant.
     </section>
 <!-- END Evaluation -->
 
-<!-- BEGIN OSes current practices -->
-      <section anchor="sec:os_current_practices" title="OS current practices">
-
-<!--
-        <t>
-Since this content can evolve with time, it is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />
-        </t>
--->
-
-        <t>
-Most modern OSes (especially mobile ones) do implement by default some MAC
-address randomization policy. Since the mechanism and policies OSes implement can evolve with time, the content is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />. For completeness, a snapshop of the content at the time of publication of this document is included below.
-        </t>
-
-        <t>
-<xref target="tab:current_practices" /> summarizes
-current practices for Androiod and iOS, as the time of writing this document
-(original source: https://www.fing.com/news/private-mac-address-on-ios-14,
-updated based on findings from the authors).
-        </t>
-
-        <texttable anchor="tab:current_practices"
-                   title="Android and iOS MAC address randomization practices">
-          <ttcol width="50%" align="left">Android 10+</ttcol>
-          <ttcol width="50%" align="left">iOS 14+</ttcol>
-            <c>The randomized MAC address is bound to the SSID</c>
-            <c>The randomized MAC address is bound to the BSSID</c>
-            <c></c>
-            <c></c>
-            <c>The randomized MAC address is stable across reconnections for the same network</c>
-            <c>The randomized MAC address is stable across reconnections for the same network</c>
-            <c></c>
-            <c></c>
-            <c>The randomized MAC address does not get re-randomized when the device forgets a WiFI network</c>
-            <c>The randomized MAC address is reset when the device forgets a WiFI network</c>
-            <c></c>
-            <c></c>
-            <c>MAC address randomization is enabled by default for all the new WiFi networks. But if the device previously connected to a WiFi network identifying itself with the real MAC address, no randomized MAC address will be used (unless manually enabled)</c>
-            <c>MAC address randomization is enabled by default for all the new WiFi networks</c>
-        </texttable>
-
-        <t>
-In September 2021, we have performed some additional tests to evaluate how most
-widely used OSes behave regarfing MAC address randomization. <xref
-target="tab:experiments-2021" /> summarizes our findings, where show on
-different rows whether the OS performs address randomization per network, per
-new connection, daily, supports configuration per SSID, supports address
-randomization for scanning, and whether it does that by default.
-        </t>
-
-        <texttable anchor="tab:experiments-2021"
-                   title="Observed behavior from different OS (as of September 2022)">
-          <ttcol width="35%" align="left">OS</ttcol>
-          <ttcol width="15%" align="center">Linux</ttcol>
-          <ttcol width="20%" align="center">Android 10</ttcol>
-          <ttcol width="20%" align="center">Windows 10</ttcol>
-          <ttcol width="10%" align="center">iOS 14+</ttcol>
-            <c>Random per net.</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random per connec.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random daily</c><c>N</c><c>N</c><c>Y</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>SSID config.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random. for scan</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
-            <c></c><c></c><c></c><c></c><c></c>
-            <c>Random. for scan by default</c><c>N</c><c>Y</c><c>N</c><c>Y</c>
-        </texttable>
-
-      <t>
-According to <xref target="privacy_android"/>, starting in Android 12, Android
-uses non-persistent randomization in the following situations: (i) a network
-suggestion app specifies that non-persistant randomization be used for the
-network (through an API); or (ii) the network is an open network that hasn't
-encountered a captive portal and an internal config option is set to do so (by
-default it is not).
-      </t>
-
-      </section>
-<!-- END OSes current practices -->
-
     <section anchor="rcm-types" title="A taxonomy of MAC address selection
                                        policies">
       <t>
@@ -745,6 +663,90 @@ Address, or PNGM Address.
 
     </section>
 
+
+<!-- BEGIN OSes current practices -->
+      <section anchor="sec:os_current_practices" title="OS current practices">
+
+<!--
+        <t>
+Since this content can evolve with time, it is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />
+        </t>
+-->
+
+        <t>
+Most modern OSes (especially mobile ones) do implement by default some MAC
+address randomization policy. Since the mechanism and policies OSes implement can evolve with time, the content is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />. For completeness, a snapshop of the content at the time of publication of this document is included below.
+        </t>
+
+        <t>
+<xref target="tab:current_practices" /> summarizes
+current practices for Androiod and iOS, as the time of writing this document
+(original source: https://www.fing.com/news/private-mac-address-on-ios-14,
+updated based on findings from the authors).
+        </t>
+
+        <texttable anchor="tab:current_practices"
+                   title="Android and iOS MAC address randomization practices">
+          <ttcol width="50%" align="left">Android 10+</ttcol>
+          <ttcol width="50%" align="left">iOS 14+</ttcol>
+            <c>The randomized MAC address is bound to the SSID</c>
+            <c>The randomized MAC address is bound to the BSSID</c>
+            <c></c>
+            <c></c>
+            <c>The randomized MAC address is stable across reconnections for the same network</c>
+            <c>The randomized MAC address is stable across reconnections for the same network</c>
+            <c></c>
+            <c></c>
+            <c>The randomized MAC address does not get re-randomized when the device forgets a WiFI network</c>
+            <c>The randomized MAC address is reset when the device forgets a WiFI network</c>
+            <c></c>
+            <c></c>
+            <c>MAC address randomization is enabled by default for all the new WiFi networks. But if the device previously connected to a WiFi network identifying itself with the real MAC address, no randomized MAC address will be used (unless manually enabled)</c>
+            <c>MAC address randomization is enabled by default for all the new WiFi networks</c>
+        </texttable>
+
+        <t>
+In September 2021, we have performed some additional tests to evaluate how most
+widely used OSes behave regarding MAC address randomization. <xref
+target="tab:experiments-2021" /> summarizes our findings, where show on
+different rows whether the OS performs address randomization per network, per
+new connection, daily, supports configuration per SSID, supports address
+randomization for scanning, and whether it does that by default.
+        </t>
+
+        <texttable anchor="tab:experiments-2021"
+                   title="Observed behavior from different OS (as of September 2022)">
+          <ttcol width="35%" align="left">OS</ttcol>
+          <ttcol width="15%" align="center">Linux</ttcol>
+          <ttcol width="20%" align="center">Android 10</ttcol>
+          <ttcol width="20%" align="center">Windows 10</ttcol>
+          <ttcol width="10%" align="center">iOS 14+</ttcol>
+            <c>Random per net.</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
+            <c></c><c></c><c></c><c></c><c></c>
+            <c>Random per connec.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
+            <c></c><c></c><c></c><c></c><c></c>
+            <c>Random daily</c><c>N</c><c>N</c><c>Y</c><c>N</c>
+            <c></c><c></c><c></c><c></c><c></c>
+            <c>SSID config.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
+            <c></c><c></c><c></c><c></c><c></c>
+            <c>Random. for scan</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
+            <c></c><c></c><c></c><c></c><c></c>
+            <c>Random. for scan by default</c><c>N</c><c>Y</c><c>N</c><c>Y</c>
+        </texttable>
+
+      <t>
+According to <xref target="privacy_android"/>, starting in Android 12, Android
+uses non-persistent randomization in the following situations: (i) a network
+suggestion app specifies that non-persistant randomization be used for the
+network (through an API); or (ii) the network is an open network that hasn't
+encountered a captive portal and an internal config option is set to do so (by
+default it is not).
+      </t>
+
+      </section>
+<!-- END OSes current practices -->
+
+
     <section anchor="IANA" title="IANA Considerations">
 
       <t>
@@ -775,8 +777,10 @@ randomization.
       </t>
 
       <t>
-Authors would like to thank Jerome Henry, Hai Shalom, Stephen Farrel and Alan DeKok for their review and comments on previous versions of this document. Authors would also like to thank
-Michael Richardson for his contributions on the taxonomy section.
+Authors would like to thank Jerome Henry, Hai Shalom, Stephen Farrel, Alan
+DeKok, Mathieu Cunche, Johanna Ansohn McDougall and Peter Yee for their review
+and comments on previous versions of this document. Authors would also like to
+thank Michael Richardson for his contributions on the taxonomy section.
       </t>
 
     </section>
@@ -838,7 +842,7 @@ Michael Richardson for his contributions on the taxonomy section.
           </author>
           <date month="" year="2005"/>
         </front>
-        <seriesInfo name="Mobile Networks and Applications, vol. 10, no. 3, pp. 315–325" value="" />
+        <seriesInfo name="Mobile Networks and Applications, vol. 10, no. 3, pp. 315-325" value="" />
       </reference>
 
       <reference anchor="privacy_ios" target="https://support.apple.com/en-us/HT211227">
@@ -1045,7 +1049,7 @@ Open Source Project">
 	    <reference anchor="contact_tracing_paper" >
         <front>
           <title>Contact Tracing App Privacy: What Data Is Shared
-By Europe’s GAEN Contact Tracing Apps</title>
+By Europe's GAEN Contact Tracing Apps</title>
            <author fullname="Douglas J. Leith"></author>
            <author fullname="Stephen Farrell"></author>
           <date month="July" year="2020"/>
