@@ -26,7 +26,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-11"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-12"
      ipr="trust200902">
   <front>
       <title abbrev="Randomized and Changing MAC Address">
@@ -90,19 +90,18 @@
     <abstract>
 
       <t>
-Internet privacy has become a major concern over the past few years. Users are
-becoming more aware that their online activity leaves a vast digital footprint,
-that communications are not always properly secured, and that their location and
-actions can be easily tracked. One of the main factors for the location tracking
-issue is the wide use of long-lasting identifiers, such as MAC addresses.
+Users are becoming more aware that their activity over the Internet leaves a
+vast digital footprint, that communications might not always be properly
+secured, and that their location and actions can be tracked. One of the main
+factors that eases tracking users is the wide use of long-lasting, and sometimes
+persistent, identifiers at various protocol layers. This document focuses on MAC
+addresses.
       </t>
 
       <t>
-There have been several initiatives at the IETF and the IEEE 802 standards
+There have been several initiatives within the IETF and the IEEE 802 standards
 committees to overcome some of these privacy issues. This document provides an
-overview of these activities, with the intention to inform the technical
-community about them, and help coordinate between present and future
-standardization activities.
+overview of these activities to help coordinating standardization activities in these bodies.
       </t>
 
     </abstract>
@@ -115,62 +114,37 @@ standardization activities.
     <section anchor="sec:introduction" title="Introduction">
 
       <t>
-Internet privacy is becoming a huge concern, as more and more mobile devices are
-getting directly (e.g., via Wi-Fi) or indirectly (e.g., via a
-smartphone using Bluetooth) connected to the Internet. This ubiquitous
-connectivity, together with not very secure protocol stacks and the lack of
-proper education about privacy make it very easy to track/monitor the location
-of users and/or eavesdrop their physical and online activities. This is due to
-many factors, such as the vast digital footprint that users leave on the
-Internet, for instance sharing information on social networks, cookies used by
-browsers and servers to provide a better navigation experience, connectivity
-logs that allow tracking of a user's Layer-2 (L2/MAC) or Layer-3 (L3) address,
-web trackers, etc.; and/or the weak (or even null in some cases) authentication
-and encryption mechanisms used to secure communications.
+Internet privacy is becoming a huge concern, as more and more devices are
+getting directly (e.g., via Wi-Fi) or indirectly (e.g., via a smartphone using
+Bluetooth) connected to the Internet. This ubiquitous connectivity, together
+with the lack of proper education about privacy make it very easy to
+track/monitor the location of users and/or eavesdrop their physical and online
+activities. This is due to many factors, such as the vast digital footprint that
+users leave on the Internet with or without their consent, for instance sharing
+information on social networks, cookies used by browsers and servers for various
+reasons, connectivity logs that allow tracking of a user's Layer-2 (L2/MAC) or
+Layer-3 (L3) address, web trackers, etc.; and/or the weak (or even null in some
+cases) authentication and encryption mechanisms used to secure communications.
       </t>
 
       <t>
 This privacy concern affects all layers of the protocol stack, from the lower
-layers involved in the actual access to the network (e.g., the MAC/Layer-2 and
-Layer-3 addresses can be used to obtain the location of a user) to higher layer
-protocol identifiers and user applications <xref target="wifi_internet_privacy"
-/>. In particular, IEEE 802 MAC addresses have historically been an easy target
-for tracking users <xref target="wifi_tracking" />.
+layers involved in the access to the network (e.g., the MAC/Layer-2 and Layer-3
+addresses can be used to obtain the location of a user) to higher layer protocol
+identifiers and user applications <xref target="wifi_internet_privacy" />. In
+particular, IEEE 802 MAC addresses have historically been an easy target for
+tracking users <xref target="wifi_tracking" />.
 
       </t>
 
       <t>
 There have been several initiatives at the IETF and the IEEE 802 standards
 committees to overcome some of these privacy issues. This document provides an
-overview of these activities, with the intention to inform the community and
-help coordinate between present and futures standardization activities.
+overview of these activities to help coordinating standardization activities
+within these bodies.
       </t>
 
     </section>
-
-    <section anchor="sec:terminology" title="Terminology">
-
-<!--
-      <t>
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in <xref target="RFC2119" />.
-      </t>
--->
-
-      <t>
-The following terms are used in this document:
-
-        <list style="empty">
-
-          <t>MAC: Medium Access Control</t>
-
-        </list>
-
-      </t>
-
-    </section>
-<!-- END Terminology -->
 
 <!-- BEGIN Problem statement -->
     <section anchor="sec:background" title="Background">
@@ -178,11 +152,11 @@ The following terms are used in this document:
     <section anchor="sec:mac_usage" title="MAC address usage">
 
         <t>
-Most mobile devices used today are Wi-Fi enabled (i.e. they are equipped with an
+Most mobile devices used today are WLAN enabled (i.e., they are equipped with an
 IEEE 802.11 wireless local area network interface). Wi-Fi interfaces, as any
-other kind of IEEE 802-based network interface, like Ethernet (i.e. IEEE 802.3)
+other kind of IEEE 802-based network interface, like Ethernet (i.e., IEEE 802.3)
 have a Layer-2 address also referred to as MAC address, which can be seen by
-anybody who can receive the signal transmitted by the network interface. The
+anybody who can receive the radio signal transmitted by the network interface. The
 format of these addresses is shown in <xref target="fig:ieee802_mac_address_format" />.
         </t>
 
@@ -267,23 +241,22 @@ of an IEEE 802.11 frame.
 
       <t>
 One way to overcome this privacy concern is by using randomly generated MAC
-addresses. As described in the previous section, the IEEE 802 addressing
-includes one bit to specify if the hardware address is locally or globally
-administered. This allows generating local addresses without the need of any
-global coordination mechanism to ensure that the generated address is still
-unique within the local network. This feature can be used to generate random
-addresses, which decouple the globally-unique identifier from the device and
-therefore make it more difficult to track a user device from its MAC/L2 address
-<xref target="enhancing_location_privacy" />.
+addresses. The IEEE 802 addressing includes one bit to specify if the hardware
+address is locally or globally administered. This allows generating local
+addresses without the need of any global coordination mechanism to ensure that
+the generated address is still unique within the local network. This feature can
+be used to generate random addresses, which decouple the globally-unique
+identifier from the device and therefore make it more difficult to track a user
+device from its MAC/L2 address <xref target="enhancing_location_privacy" />.
       </t>
 
       <t>
 Note that there are reports <xref target="contact_tracing_paper" /> of some
-mobile OSes reporting persistently (every 20 minutes or so) on MAC addresses
-(among other information), which would defeat MAC address randomization. While
-these practices might have changed by now, it is important to highlight that
-privacy preserving techniques should be conducted considering all layers of the
-protocol stack.
+mobile Operating Systems (OSes) reporting persistently (every 20 minutes or so)
+on MAC addresses (among other information), which would defeat MAC address
+randomization. While these practices might have changed by now, it is important
+to highlight that privacy preserving techniques should be conducted considering
+all layers of the protocol stack.
       </t>
 
     </section>
@@ -292,14 +265,14 @@ protocol stack.
     <section anchor="sec:mac_addr_experiments" title="Privacy Workshop, Tutorial and Experiments at IETF and IEEE 802 meetings">
 
       <t>
-As an outcome to the STRINT W3C/IAB Workshop <xref target="strint" />, on July
-2014 a Tutorial on Pervasive Surveillance of the Internet - Designing Privacy
-into Internet Protocols was given at the IEEE 802 Plenary meeting in San Diego
-<xref target="privacy_tutorial" />. The Tutorial provided an update on the
-recent developments regarding Internet privacy, the actions that other SDOs such
-as IETF were taking, and guidelines that were being followed when developing new
-Internet protocol specifications (e.g. <xref target="RFC6973" />). The Tutorial
-highlighted some Privacy concerns applicable specifically to Link Layer
+As an outcome to the STRINT W3C/IAB Workshop <xref target="strint" />, a
+tutorial on "Pervasive Surveillance of the Internet - Designing Privacy into
+Internet Protocols" was given at the IEEE 802 Plenary meeting in San Diego <xref
+target="privacy_tutorial" /> in July of 2014. The tutorial provided an update on
+the recent developments regarding Internet privacy, the actions undertaken by
+other SDOs such as IETF, and guidelines that were being followed when developing
+new Internet protocol specifications (e.g., <xref target="RFC6973" />). The
+tutorial highlighted some privacy concerns applicable specifically to Link Layer
 technologies and provided suggestions on how IEEE 802 could help addressing
 them.
       </t>
@@ -316,30 +289,30 @@ Access Control (MAC) Address Usage <xref target="IEEE_802c" />.
       </t>
 
       <t>
-In order to test the effects of MAC address randomization, major trials were
-conducted at the IETF and IEEE 802 meetings between November 2014 and March 2015
-- IETF91, IETF92 and IEEE 802 Plenary in Berlin. The purpose of the experiments
-was to evaluate the use of MAC address randomization from two different
-perspectives: (i) the effect on the connectivity experience of the end-user,
-also checking if applications and operating systems (OSs) were affected; and
-(ii) the potential impact on the network infrastructure itself. Some of the
-findings were published in <xref target="wifi_internet_privacy" />.
+In order to test the effects of MAC address randomization, trials were conducted
+at the IETF and IEEE 802 meetings between November 2014 and March 2015 - IETF91,
+IETF92 and IEEE 802 Plenary in Berlin. The purpose of the trials was to evaluate
+the use of MAC address randomization from two different perspectives: (i) the
+effect on the connectivity experience of the end-user, also checking if
+applications and OSes were affected; and (ii) the potential impact on the
+network infrastructure itself. Some of the findings were published in <xref
+target="wifi_internet_privacy" />.
       </t>
 
       <t>
-During the experiments it was observed that the probability of address
-duplication in a network with this characteristics is negligible. The
-experiments also showed that other protocol identifiers can be correlated and
-therefore be used to still track an individual. Hence, effective privacy tools
-should not work in isolation at a single layer, but they should be coordinated
-with other privacy features at higher layers.
+During the trials it was observed that the probability of address duplication in
+a network is negligible. The trials also revealed that other protocol
+identifiers (e.g., DHCP client identifier) can be correlated and therefore be
+used to still track an individual. Hence, effective privacy tools should not
+work in isolation at a single layer, but they should be coordinated with other
+privacy features at higher layers.
       </t>
 
       <t>
-Since then, MAC randomization has further been implemented by mobile operating
-systems to provide better privacy for mobile phone users when connecting to
-public wireless networks <xref target="privacy_ios" />, <xref
-target="privacy_windows" />, <xref target="privacy_android" />.
+Since then, MAC randomization has further been implemented by mobile OSes to
+provide better privacy for mobile phone users when connecting to public wireless
+networks <xref target="privacy_ios" />, <xref target="privacy_windows" />, <xref
+target="privacy_android" />.
       </t>
 
 
@@ -349,27 +322,27 @@ target="privacy_windows" />, <xref target="privacy_android" />.
     </section>
 
 <!-- BEGIN Tools -->
-    <section anchor="sec:mac_rnd_at_ieee802" title="Recent RCM activities at the IEEE 802">
+    <section anchor="sec:mac_rnd_at_ieee802" title="Randomized and Changing MAC addresses activities at the IEEE 802">
 
       <t>
-Practical experiences of Randomized And Changing MAC Addresses (RCM) in live
-devices helped researchers fine-tune their understanding of attacks against
-randomization mechanisms <xref target="when_mac_randomization_fails" />. At IEEE
-802.11 these research experiences eventually formed the basis for a specified
-mechanism introduced in the IEEE 802.11aq in 2018 which randomize MAC addresses
-that recommends mechanisms to avoid pitfalls <xref target="IEEE_802_11_aq" />.
+Practical experiences of Randomized and Changing MAC addresses (RCM) in devices
+helped researchers fine-tune their understanding of attacks against
+randomization mechanisms <xref target="when_mac_randomization_fails" />. At the
+IEEE 802.11 group these research experiences eventually formed the basis for a
+specified mechanism introduced in the IEEE 802.11aq in 2018 which randomize MAC
+addresses <xref target="IEEE_802_11_aq" />.
       </t>
 
       <t>
 More recent developments include turning on MAC randomization in mobile
-operating systems by default, which has an impact on the ability of network
-operators to personalize or customize services <xref
+OSes by default, which has an impact on the ability of network
+operators to customize services <xref
 target="rcm_user_experience_csd" />. Therefore, follow-on work in the IEEE
 802.11 mapped effects of potentially large uptake of randomized MAC identifiers
 on a number of commonly offered operator services in 2019<xref
 target="rcm_tig_final_report" />. In the summer of 2020 this work emanated in
 two new standards projects with the purpose of developing mechanisms that do not
-decrease user privacy and enable an optimal user experience when the MAC address
+decrease user privacy but enable an optimal user experience when the MAC address
 of a device in an Extended Service Set is randomized or changes <xref
 target="rcm_user_experience_par" /> and user privacy solutions applicable to
 IEEE Std 802.11 <xref target="rcm_privacy_par" />.
@@ -388,10 +361,10 @@ by a network administrator.
       </t>
 
       <t>
-IEEE Std 802E-2020: Recommended Practice for Privacy Considerations for IEEE 802
-Technologies <xref target="IEEE_802E" /> recommends the use of temporary and
+"IEEE Std 802E-2020: Recommended Practice for Privacy Considerations for IEEE 802
+Technologies" <xref target="IEEE_802E" /> recommends the use of temporary and
 transient identifiers if there are no compelling reasons for a newly introduced
-identifier to be permanent. This Recommended Practice is part of the basis for
+identifier to be permanent. This recommendation is part of the basis for
 the review of user privacy solutions for IEEE Std 802.11 (aka Wi-Fi) devices as
 part of the RCM <xref target="rcm_privacy_csd" /> efforts. Annex T of IEEE Std
 802.1AEdk-2023: MAC Privacy Protection <xref target="IEEE802.1AEdk-2023" />
@@ -399,7 +372,7 @@ discusses privacy considerations in bridged networks.
 </t>
 
 <t>
-Currently, two task groups in IEEE 802.11 are dealing with issues related to RCM:
+As per 2024, two task groups in IEEE 802.11 are dealing with issues related to RCM:
 
   <list style="symbols">
 
@@ -409,7 +382,7 @@ creates on 802.11 networks and related services, and
     </t>
 
     <t>
-The IEEE 802.11bi task group, which will define modifications to the IEEE Std
+The IEEE 802.11bi task group, which is chartered to define modifications to the IEEE Std
 802.11 medium access control (MAC) specification to specify new mechanisms that
 address and improve user privacy.
     </t>
@@ -451,11 +424,11 @@ for IPv6, which typically results in hosts configuring one or more "stable"
 addresses composed of a network prefix advertised by a local router, and an
 Interface Identifier (IID). <xref target="RFC8064" /> formally updated the
 original IPv6 IID selection mechanism to avoid generating the IID from the MAC
-address of the interface (via EUI64), as this potentially allowed for global
-tracking of a device at L3 from any point on the Internet (note that the prefix
-part of the address provides meaningful insights of the physical location of the
-device in general, which together with the MAC address-based IID, made it easier
-to perform global device tracking).
+address of the interface (via EUI64), as this potentially allowed for tracking
+of a device at L3. Additionally, the prefix part of an IP address provides
+meaningful insights of the physical location of the device in general, which
+together with the MAC address-based IID, made it easier to perform global device
+tracking.
       </t>
 
       <t>
@@ -478,15 +451,14 @@ In order to do so, a node produces a sequence of temporary global scope
 addresses from a sequence of interface identifiers that appear to be random in
 the sense that it is difficult for an outside observer to predict a future
 address (or identifier) based on a current one, and it is difficult to determine
-previous addresses (or identifiers) knowing only the present one. The main
-problem with the temporary addresses is that they should not be used by
-applications that listen for incoming connections (as these are supposed to be
-waiting on permanent/well-known identifiers). Besides, if a node changes network
-and comes back to a previously visited one, the temporary addresses that the
-node would use will be different, and this might be an issue in certain networks
-where addresses are used for operational purposes (e.g., filtering or
-authentication). <xref target="RFC7217" />, summarized next, partially addresses
-the problems aforementioned.
+previous addresses (or identifiers) knowing only the present one. Temporary
+addresses should not be used by applications that listen for incoming
+connections (as these are supposed to be waiting on permanent/well-known
+identifiers). If a node changes network and comes back to a previously visited
+one, the temporary addresses that the node would use will be different, and this
+might be an issue in certain networks where addresses are used for operational
+purposes (e.g., filtering or authentication). <xref target="RFC7217" />,
+summarized next, partially addresses the problems aforementioned.
       </t>
 
       <t>
@@ -549,7 +521,8 @@ scenarios identified as relevant.
     <section anchor="rcm-types" title="A taxonomy of MAC address selection
                                        policies">
       <t>
-        This section documents different policies for MAC address selection. Note that some OSes might use combination of multiple of these policies.
+This section documents different policies for MAC address selection. Some OSes
+might use combination of multiple of these policies.
       </t>
 
       <t>
@@ -608,11 +581,11 @@ Address, or PNGM Address.
         </t>
       </section>
 
-      <section anchor="policy-pngm" title="Per-Network Generated MAC adress (PNGM)">
+      <section anchor="policy-pngm" title="Per-Network Generated MAC address (PNGM)">
 
         <t>
           This form of MAC address is generated each time a new network
-          connection is created.
+          attachment is created.
         </t>
         <t>
           This is typically used with WiFi (802.11) networks where the network is identified by an SSID Name.
@@ -800,10 +773,10 @@ randomization.
       <t>
 Authors would like to thank Jerome Henry, Hai Shalom, Stephen Farrel, Alan
 DeKok, Mathieu Cunche, Johanna Ansohn McDougall, Peter Yee, Bob Hinden, Behcet
-Sarikaya and David Farmer for their review and comments on previous versions of
-this document. Authors would also like to thank Michael Richardson for his
-contributions on the taxonomy section. Finally, authors would also like to thank
-the IEEE 802.1 Working Group for its review and comments.
+Sarikaya, David Farmer and Mohamed Boucadair for their review and comments on
+previous versions of this document. Authors would also like to thank Michael
+Richardson for his contributions on the taxonomy section. Finally, authors would
+also like to thank the IEEE 802.1 Working Group for its review and comments.
       </t>
 
     </section>
