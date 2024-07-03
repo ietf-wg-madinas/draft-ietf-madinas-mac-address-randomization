@@ -26,7 +26,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-13"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-14"
      ipr="trust200902">
   <front>
       <title abbrev="Randomized and Changing MAC Address">
@@ -654,7 +654,8 @@ address randomization policy. Since the mechanism and policies OSes implement ca
         <t>
 <xref target="tab:current_practices" /> summarizes
 current practices for Android and iOS, as the time of writing this document
-(original source: https://www.fing.com/news/private-mac-address-on-ios-14,
+(original source posted at: https://www.fing.com/news/private-mac-address-on-ios-14, latest wayback machine's
+snapshot available here: https://web.archive.org/web/20230905111429/https://www.fing.com/news/private-mac-address-on-ios-14,
 updated based on findings from the authors).
         </t>
 
@@ -682,8 +683,8 @@ updated based on findings from the authors).
 In September 2021, we have performed some additional tests to evaluate how most
 widely used OSes behave regarding MAC address randomization. <xref
 target="tab:experiments-2021" /> summarizes our findings, where show on
-different rows whether the OS performs address randomization per network, per
-new connection, daily, supports configuration per SSID, supports address
+different rows whether the OS performs address randomization per network (PNGM according to the taxonomy introduced in <xref target="rcm-types" />), per
+new connection (PSGM), daily (PPGM with a period of 24h), supports configuration per SSID, supports address
 randomization for scanning, and whether it does that by default.
         </t>
 
@@ -694,11 +695,11 @@ randomization for scanning, and whether it does that by default.
           <ttcol width="20%" align="center">Android 10</ttcol>
           <ttcol width="20%" align="center">Windows 10</ttcol>
           <ttcol width="10%" align="center">iOS 14+</ttcol>
-            <c>Random per net.</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
+            <c>Random per net. (PNGM)</c><c>Y</c><c>Y</c><c>Y</c><c>Y</c>
             <c></c><c></c><c></c><c></c><c></c>
-            <c>Random per connec.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
+            <c>Random per connec. (PSGM)</c><c>Y</c><c>N</c><c>N</c><c>N</c>
             <c></c><c></c><c></c><c></c><c></c>
-            <c>Random daily</c><c>N</c><c>N</c><c>Y</c><c>N</c>
+            <c>Random daily (PPGM)</c><c>N</c><c>N</c><c>Y</c><c>N</c>
             <c></c><c></c><c></c><c></c><c></c>
             <c>SSID config.</c><c>Y</c><c>N</c><c>N</c><c>N</c>
             <c></c><c></c><c></c><c></c><c></c>
@@ -768,7 +769,7 @@ randomization.
       <t>
 Authors would like to thank Jerome Henry, Hai Shalom, Stephen Farrel, Alan
 DeKok, Mathieu Cunche, Johanna Ansohn McDougall, Peter Yee, Bob Hinden, Behcet
-Sarikaya, David Farmer, Mohamed Boucadair and Éric Vyncke for their review and comments on
+Sarikaya, David Farmer, Mohamed Boucadair, Éric Vyncke and Christian Amsüss for their reviews and comments on
 previous versions of this document. Authors would also like to thank Michael
 Richardson for his contributions on the taxonomy section. Finally, authors would
 also like to thank the IEEE 802.1 Working Group for its review and comments, performed as part of the Liaison statement on Randomized and Changing MAC Address (https://datatracker.ietf.org/liaison/1884/).
