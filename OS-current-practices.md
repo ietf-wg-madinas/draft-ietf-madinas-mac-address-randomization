@@ -1,7 +1,7 @@
    # OS current practices
    
    Most modern OSes (especially mobile ones) do implement by default some MAC address randomization policy. Table 1 summarizes current practices for Androiod and iOS, as the time of writing this document
-   (original source: [Private MAC address on iOS 14](https://www.fing.com/news/private-mac-address-on-ios-14), updated based on findings from the authors of [draft-ietf-madinas-mac-address-randomization](https://datatracker.ietf.org/doc/draft-ietf-madinas-mac-address-randomization/).
+   (original source posted at: [Private MAC address on iOS 14](https://www.fing.com/news/private-mac-address-on-ios-14), latest wayback machine's snapshot available [here](https://web.archive.org/web/20230905111429/https://www.fing.com/news/private-mac-address-on-ios-14), updated based on findings from the authors of [draft-ietf-madinas-mac-address-randomization](https://datatracker.ietf.org/doc/draft-ietf-madinas-mac-address-randomization/).
 
     +=============================================+===================+
     | Android 10+                                 | iOS 14+           |
@@ -36,32 +36,42 @@
 
         Table 1: Android and iOS MAC address randomization practices
 
-   In September 2021, we have performed some additional tests to evaluate how most widely used OSes behave regarfing MAC address randomization.  Table 2 summarizes our findings, where show on
-   different rows whether the OS performs address randomization per network, per new connection, daily, supports configuration per SSID, supports address randomization for scanning, and whether it does that
-   by default.
+   In September 2021, we have performed some additional tests to
+   evaluate how most widely used OSes behave regarding MAC address
+   randomization.  Table 2 summarizes our findings, where show on
+   different rows whether the OS performs address randomization per
+   network (PNGM according to the taxonomy introduced in Section 6 of
+   [draft-ietf-madinas-mac-address-randomization](https://datatracker.ietf.org/doc/draft-ietf-madinas-mac-address-randomization/).), per
+   new connection (PSGM), daily (PPGM with a period of 24h), supports
+   configuration per SSID, supports address randomization for scanning,
+   and whether it does that by default.
 
-    +====================+=======+============+============+=========+
-    | OS                 | Linux | Android 10 | Windows 10 | iOS 14+ |
-    +====================+=======+============+============+=========+
-    | Random per net.    |   Y   |     Y      |     Y      |    Y    |
-    +--------------------+-------+------------+------------+---------+
-    +--------------------+-------+------------+------------+---------+
-    | Random per connec. |   Y   |     N      |     N      |    N    |
-    +--------------------+-------+------------+------------+---------+
-    +--------------------+-------+------------+------------+---------+
-    | Random daily       |   N   |     N      |     Y      |    N    |
-    +--------------------+-------+------------+------------+---------+
-    +--------------------+-------+------------+------------+---------+
-    | SSID config.       |   Y   |     N      |     N      |    N    |
-    +--------------------+-------+------------+------------+---------+
-    +--------------------+-------+------------+------------+---------+
-    | Random. for scan   |   Y   |     Y      |     Y      |    Y    |
-    +--------------------+-------+------------+------------+---------+
-    +--------------------+-------+------------+------------+---------+
-    | Random. for scan   |   N   |     Y      |     N      |    Y    |
-    | by default         |       |            |            |         |
-    +--------------------+-------+------------+------------+---------+
-
+      +=================+=======+============+============+=========+
+      | OS              | Linux | Android 10 | Windows 10 | iOS 14+ |
+      +=================+=======+============+============+=========+
+      | Random per net. |   Y   |     Y      |     Y      |    Y    |
+      | (PNGM)          |       |            |            |         |
+      +-----------------+-------+------------+------------+---------+
+      +-----------------+-------+------------+------------+---------+
+      | Random per      |   Y   |     N      |     N      |    N    |
+      | connec.  (PSGM) |       |            |            |         |
+      +-----------------+-------+------------+------------+---------+
+      +-----------------+-------+------------+------------+---------+
+      | Random daily    |   N   |     N      |     Y      |    N    |
+      | (PPGM)          |       |            |            |         |
+      +-----------------+-------+------------+------------+---------+
+      +-----------------+-------+------------+------------+---------+
+      | SSID config.    |   Y   |     N      |     N      |    N    |
+      +-----------------+-------+------------+------------+---------+
+      +-----------------+-------+------------+------------+---------+
+      | Random. for     |   Y   |     Y      |     Y      |    Y    |
+      | scan            |       |            |            |         |
+      +-----------------+-------+------------+------------+---------+
+      +-----------------+-------+------------+------------+---------+
+      | Random. for     |   N   |     Y      |     N      |    Y    |
+      | scan by default |       |            |            |         |
+      +-----------------+-------+------------+------------+---------+
+ 
       Table 2: Observed behavior from different OS (as of September
                                   2022)
 
