@@ -26,7 +26,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-14"
+<rfc category="info" docName="draft-ietf-madinas-mac-address-randomization-15"
      ipr="trust200902">
   <front>
       <title abbrev="Randomized and Changing MAC Address">
@@ -114,7 +114,7 @@ overview of these activities to help coordinating standardization activities in 
     <section anchor="sec:introduction" title="Introduction">
 
       <t>
-Internet privacy is becoming a huge concern, as more and more devices are
+Privacy is becoming a huge concern, as more and more devices are
 getting directly (e.g., via Wi-Fi) or indirectly (e.g., via a smartphone using
 Bluetooth) connected to the Internet. This ubiquitous connectivity, together
 with the lack of proper education about privacy make it very easy to
@@ -648,7 +648,7 @@ Since this content can evolve with time, it is now hosted at <eref target="https
 
         <t>
 Most modern OSes (especially mobile ones) do implement by default some MAC
-address randomization policy. Since the mechanism and policies OSes implement can evolve with time, the content is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />. For completeness, a snapshot of the content at the time of publication of this document is included below.
+address randomization policy. Since the mechanism and policies OSes implement can evolve with time, the content is now hosted at <eref target="https://github.com/ietf-wg-madinas/draft-ietf-madinas-mac-address-randomization/blob/main/OS-current-practices.md" />. For completeness, a snapshot of the content at the time of publication of this document is included below. Note that the extensive testing reported in this document was conducted in 2021, but no significant changes have been detected at the time of publication of this document.
         </t>
 
         <t>
@@ -691,7 +691,7 @@ randomization for scanning, and whether it does that by default.
         <texttable anchor="tab:experiments-2021"
                    title="Observed behavior from different OS (as of September 2021)">
           <ttcol width="35%" align="left">OS</ttcol>
-          <ttcol width="15%" align="center">Linux</ttcol>
+          <ttcol width="15%" align="center">Linux (Debian "bookworm")</ttcol>
           <ttcol width="20%" align="center">Android 10</ttcol>
           <ttcol width="20%" align="center">Windows 10</ttcol>
           <ttcol width="10%" align="center">iOS 14+</ttcol>
@@ -769,7 +769,7 @@ randomization.
       <t>
 Authors would like to thank Jerome Henry, Hai Shalom, Stephen Farrel, Alan
 DeKok, Mathieu Cunche, Johanna Ansohn McDougall, Peter Yee, Bob Hinden, Behcet
-Sarikaya, David Farmer, Mohamed Boucadair, Éric Vyncke and Christian Amsüss for their reviews and comments on
+Sarikaya, David Farmer, Mohamed Boucadair, Éric Vyncke, Christian Amsüss, Roma Danyliw, Murray Kucherawy and Paul Wouters for their reviews and comments on
 previous versions of this document. Authors would also like to thank Michael
 Richardson for his contributions on the taxonomy section. Finally, authors would
 also like to thank the IEEE 802.1 Working Group for its review and comments, performed as part of the Liaison statement on Randomized and Changing MAC Address (https://datatracker.ietf.org/liaison/1884/).
